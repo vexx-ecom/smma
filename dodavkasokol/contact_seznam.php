@@ -1,8 +1,9 @@
 <?php
-// Zpracování kontaktního formuláře s PHPMailer
+// ALTERNATIVNÍ VERZE - Použití Seznam.cz místo Gmail
+// Tato verze je jednodušší na nastavení a obvykle funguje bez problémů
+
 header('Content-Type: application/json');
 
-// Načtení PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -16,13 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Získání dat z formuláře
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $subject = isset($_POST['subject']) ? trim($_POST['subject']) : '';
 $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
-// Validace
 $errors = [];
 
 if (empty($name)) {
@@ -49,34 +48,23 @@ if (!empty($errors)) {
     exit;
 }
 
-// Konfigurace PHPMailer pro Gmail
 $mail = new PHPMailer(true);
 
 try {
-    // Nastavení serveru - zkusíme port 465 s SSL
+    // Nastavení pro Seznam.cz (jednodušší než Gmail)
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = 'smtp.seznam.cz';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'vexx.ecom@gmail.com'; // Gmail adresa
-    $mail->Password   = 'DefN0tVexx'; // Gmail heslo
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // SSL místo TLS
-    $mail->Port       = 465; // Port 465 pro SSL
+    $mail->Username   = 'vas-email@seznam.cz'; // ZMĚŇTE na váš Seznam email
+    $mail->Password   = 'vase-heslo'; // ZMĚŇTE na vaše Seznam heslo
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
     $mail->CharSet    = 'UTF-8';
-    $mail->SMTPDebug  = 0; // Nastavte na 2 pro debugování
-    $mail->SMTPOptions = array(
-        'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-        )
-    );
 
-    // Nastavení odesílatele a příjemce
-    $mail->setFrom('vexx.ecom@gmail.com', 'Dodávka Sokol - Web');
+    $mail->setFrom('vas-email@seznam.cz', 'Dodávka Sokol - Web');
     $mail->addAddress('vexx.ecom@gmail.com', 'Dodávka Sokol');
     $mail->addReplyTo($email, $name);
 
-    // Obsah emailu
     $mail->isHTML(true);
     $mail->Subject = 'Kontaktní formulář - ' . $subject;
     
@@ -94,15 +82,8 @@ try {
     $email_body .= '</body></html>';
     
     $mail->Body = $email_body;
-    
-    // Textová verze pro klienty bez HTML podpory
-    $mail->AltBody = "Nový kontakt z webu Dodávka Sokol\n\n";
-    $mail->AltBody .= "Jméno: " . $name . "\n";
-    $mail->AltBody .= "Email: " . $email . "\n";
-    $mail->AltBody .= "Předmět: " . $subject . "\n\n";
-    $mail->AltBody .= "Zpráva:\n" . $message . "\n";
+    $mail->AltBody = "Nový kontakt z webu Dodávka Sokol\n\nJméno: $name\nEmail: $email\nPředmět: $subject\n\nZpráva:\n$message";
 
-    // Odeslání emailu
     $mail->send();
     
     echo json_encode([
@@ -118,3 +99,4 @@ try {
     ]);
 }
 ?>
+

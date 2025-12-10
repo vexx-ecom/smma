@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodavka Sokol - Pronájem Citroen Jumper</title>
+    <title>Dodávka Sokol - Pronájem Citroen Jumper</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <h1 class="logo">Dodavka Sokol</h1>
+                <div class="logo-wrapper">
+                    <?php if (file_exists('logo_nav.png')): ?>
+                        <img src="logo_nav.png" alt="Dodávka Sokol" class="logo-img">
+                    <?php endif; ?>
+                    <h1 class="logo">Dodávka Sokol</h1>
+                </div>
                 <nav class="nav">
                     <a href="#home" class="nav-link">Domů</a>
                     <a href="#galerie" class="nav-link">Galerie</a>
@@ -27,53 +33,47 @@
         </div>
     </header>
 
-    <!-- Hero Section - Výhody -->
+    <!-- Hero Section -->
     <section id="home" class="hero vyhody-hero">
         <div class="container">
-            <div class="vyhody-grid">
-                <div class="vyhody-card vyhody-card-blue">
-                    <div class="vyhody-icon">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="6" width="16" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <rect x="6" y="8" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                            <rect x="5" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2" fill="none" opacity="0.7" transform="translate(2 2)"/>
-                            <rect x="7" y="6" width="4" height="3" rx="0.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.7" transform="translate(2 2)"/>
-                        </svg>
-                    </div>
-                    <h3 class="vyhody-title">Rychlé vyzvednutí</h3>
-                    <p class="vyhody-text">Smlouvu máme pro Vás již připravenou</p>
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Pronájem <span class="gradient-text">Citroen Jumper</span>
+                </h1>
+                <p class="hero-description">
+                    Profesionální dodávka pro vaše potřeby. Kapacita 9 osob nebo 13 m³ nákladového prostoru. 
+                    Ideální pro stěhování, přepravu zboží nebo skupinové cesty.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn btn-primary">Kontaktujte nás</a>
+                    <a href="#specifikace" class="btn btn-secondary">Více informací</a>
                 </div>
-                <div class="vyhody-card vyhody-card-green">
-                    <div class="vyhody-icon">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 4C11.4 4 11 4.4 11 5V7C11 7.6 11.4 8 12 8C12.6 8 13 7.6 13 7V5C13 4.4 12.6 4 12 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M10 7L12 9L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="6" y="10" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2" fill="none"/>
-                            <path d="M8 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M8 14H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="9" cy="18" r="1.5" fill="currentColor"/>
-                            <circle cx="15" cy="18" r="1.5" fill="currentColor"/>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
                         </svg>
+                        <span>Rychlé vyzvednutí</span>
                     </div>
-                    <h3 class="vyhody-title">Cesta k pronájmu</h3>
-                    <p class="vyhody-text">Cesta k pronájmu je u nás velmi jednoduchá</p>
-                </div>
-                <div class="vyhody-card vyhody-card-brown">
-                    <div class="vyhody-icon">
-                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 17H19L17 19H7L5 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M19 17V9C19 7.9 18.1 7 17 7H7C5.9 7 5 7.9 5 9V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7 7V5C7 3.9 7.9 3 9 3H15C16.1 3 17 3.9 17 5V7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="3" y="17" width="18" height="2" fill="currentColor"/>
-                            <circle cx="8" cy="17" r="1.5" fill="currentColor"/>
-                            <circle cx="16" cy="17" r="1.5" fill="currentColor"/>
-                            <rect x="6" y="5" width="12" height="2" rx="1" fill="currentColor" opacity="0.8"/>
+                    <div class="hero-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
                         </svg>
+                        <span>Flexibilní podmínky</span>
                     </div>
-                    <h3 class="vyhody-title">Jednoduchost</h3>
-                    <p class="vyhody-text">S námi je rezervace jednoduchá</p>
+                    <div class="hero-feature">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                        </svg>
+                        <span>Výhodné ceny</span>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
     </section>
 
@@ -96,35 +96,54 @@
         </div>
     </section>
 
-    <!-- Specifikace -->
+    <!-- Specifikace a Ceník -->
     <section id="specifikace" class="specifikace">
         <div class="container">
-            <h2 class="section-title">Specifikace vozidla</h2>
-            <div class="spec-grid">
-                <div class="spec-card">
-                    <div class="spec-icon">👥</div>
-                    <h3>Kapacita</h3>
-                    <p class="spec-value">9 osob</p>
+            <div class="spec-cenik-wrapper">
+                <div class="spec-section">
+                    <h2 class="section-title">Specifikace vozidla</h2>
+                    <div class="spec-list">
+                        <div class="spec-item">
+                            <span class="spec-label">Kapacita:</span>
+                            <span class="spec-value">9 osob</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Nákladový prostor:</span>
+                            <span class="spec-value">13 m³</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Spotřeba:</span>
+                            <span class="spec-value">8 l/100 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Palivo:</span>
+                            <span class="spec-value">Diesel</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Převodovka:</span>
+                            <span class="spec-value">Manuální</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <div class="spec-icon">📦</div>
-                    <h3>Nákladový prostor</h3>
-                    <p class="spec-value">13 m³</p>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">⛽</div>
-                    <h3>Spotřeba</h3>
-                    <p class="spec-value">8 l/100 km</p>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">🛢️</div>
-                    <h3>Palivo</h3>
-                    <p class="spec-value">Diesel</p>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">⚙️</div>
-                    <h3>Převodovka</h3>
-                    <p class="spec-value">Manuální</p>
+                <div class="cenik-section">
+                    <h2 class="section-title">Ceník pronájmu</h2>
+                    <div class="pricing-card">
+                        <h3 class="pricing-title">Krátkodobý pronájem</h3>
+                        <div class="pricing-table">
+                            <div class="pricing-row">
+                                <span class="pricing-period">1-3 dny</span>
+                                <span class="pricing-price">1 500 Kč / den</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-period">4-7 dnů</span>
+                                <span class="pricing-price">1 400 Kč / den</span>
+                            </div>
+                            <div class="pricing-row">
+                                <span class="pricing-period">8-14 dnů</span>
+                                <span class="pricing-price">1 300 Kč / den</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -185,44 +204,6 @@
         </div>
     </section>
 
-    <!-- Ceník -->
-    <section id="cenik" class="cenik">
-        <div class="container">
-            <h2 class="section-title">Ceník pronájmu</h2>
-            <div class="pricing-wrapper">
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Krátkodobý pronájem</h3>
-                    <div class="pricing-table">
-                        <div class="pricing-row">
-                            <span class="pricing-period">1-3 dny</span>
-                            <span class="pricing-price">1 500 Kč / den</span>
-                        </div>
-                        <div class="pricing-row">
-                            <span class="pricing-period">4-7 dnů</span>
-                            <span class="pricing-price">1 400 Kč / den</span>
-                        </div>
-                        <div class="pricing-row">
-                            <span class="pricing-period">8-14 dnů</span>
-                            <span class="pricing-price">1 300 Kč / den</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="pricing-card pricing-card-featured">
-                    <h3 class="pricing-title">Dlouhodobý pronájem</h3>
-                    <div class="pricing-table">
-                        <div class="pricing-row">
-                            <span class="pricing-period">15-30 dnů</span>
-                            <span class="pricing-price">1 200 Kč / den</span>
-                        </div>
-                        <div class="pricing-row pricing-row-featured">
-                            <span class="pricing-period">31 a více dnů</span>
-                            <span class="pricing-price">1 000 Kč / den</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Kontakt -->
     <section id="kontakt" class="kontakt">
@@ -275,10 +256,43 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <?php if (file_exists('logo.png')): ?>
-                    <img src="logo.png" alt="Dodavka Sokol" class="footer-logo">
-                <?php endif; ?>
-                <p>&copy; <?php echo date('Y'); ?> Dodavka Sokol. Všechna práva vyhrazena.</p>
+                <div class="footer-main">
+                    <div class="footer-section">
+                        <?php if (file_exists('logo_footer.png')): ?>
+                            <img src="logo_footer.png" alt="Dodávka Sokol" class="footer-logo">
+                        <?php endif; ?>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-heading">Kontakt</h4>
+                        <div class="footer-contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <a href="mailto:info@dodavkasokol.cz" class="footer-contact-link">info@dodavkasokol.cz</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H8.27924C8.70967 3 9.09181 3.27543 9.22792 3.68377L10.7257 8.17721C10.8831 8.64932 10.6694 9.16531 10.2243 9.38787L7.96701 10.5165C9.06925 12.9612 11.0388 14.9308 13.4835 16.033L14.6121 13.7757C14.8347 13.3306 15.3507 13.1169 15.8228 13.2743L20.3162 14.7721C20.7246 14.9082 21 15.2903 21 15.7208V19C21 20.1046 20.1046 21 19 21H18C9.71573 21 3 14.2843 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <a href="tel:+420123456789" class="footer-contact-link">+420 123 456 789</a>
+                        </div>
+                        <p class="footer-text">Němčice 23, 533 52 Němčice</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-heading">Navigace</h4>
+                        <nav class="footer-nav">
+                            <a href="#home" class="footer-link">Domů</a>
+                            <a href="#galerie" class="footer-link">Galerie</a>
+                            <a href="#specifikace" class="footer-link">Specifikace</a>
+                            <a href="#dostupnost" class="footer-link">Dostupnost</a>
+                            <a href="#cenik" class="footer-link">Ceník</a>
+                            <a href="#kontakt" class="footer-link">Kontakt</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; <?php echo date('Y'); ?> Dodávka Sokol. Všechna práva vyhrazena.</p>
+                </div>
             </div>
         </div>
     </footer>
