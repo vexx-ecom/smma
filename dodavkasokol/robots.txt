@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin.php
+Disallow: /admin_login.php
+Disallow: /admin_api.php
+Disallow: /admin_logout.php
+Disallow: /config_db.php
+Disallow: /config_email.php
+Disallow: /contact.php
+Disallow: /contact_seznam.php
+Disallow: /test_db.php
+Disallow: /availability_api.php
+
+Sitemap: https://www.dodavkasokol.cz/sitemap.php
+
